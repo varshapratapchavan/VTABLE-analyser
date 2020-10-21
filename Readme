@@ -1,0 +1,50 @@
+
+Terms:
+
+1)Runtime Polymorphism:In c++,we can perform polymorphism in two ways:
+Compile time and Runtime.
+When the process of binding funtion call to its defination is done at runtime is called as 
+Runtime polymorphism /dynamic binding /late binding.
+
+To use the runtime polymorphism we have atleast Singel level inheritance
+and Upcasting.
+
+2)Upcasting:Upcasting is the concept where base class pointer points to the derived class object.
+    eg:
+      Base *bp=NULL;
+      Derived dobj;
+
+      bp=&dobj;
+
+3)Redefination:If the base class and derived class both defined the same function having exactly 
+same prototype then 
+            bp->function_name();
+            then it calls the function from the Base class.
+
+
+4)overriding:If the base class and derived class both defined the same function having exactly 
+same prototype but Base class declare the function virtual then 
+            bp->function_name();
+            then it calls the function from the Derived class.
+
+5)VPTR:VPTR is a pointer which points to VTABLE.
+
+6)VTABLE(Virtual Table):Virtual tabel is nothing but an array which contains
+addresses of virtal functions in order in which they are defined in a class.
+
+
+
+In this application we are going to access the VPTR
+(As we know if an object of a class or a class inherited from another class ,
+if any one of them contain virtal functions then
+first 4 or 8bytes(depending on pointer size)of object are reserved for VPTR )
+and thorugh VPTR,we can access the VTABLE.
+
+From the VTABLE we access addresses of virtual functions.
+once we got the address we can call that specific function from our object's layout.
+By using this concept we analyse the internal working of VPTR and VTABEL.
+In this application we use the concept of pointers and explicite typecasting.
+
+Thank you..!!
+
+
